@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e4f0eb;
+        }
+
+        .search-bar {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 72px;
+            align-items: center;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+            width: 45%;
+        }
+
+        .search-bar input[type="text"] {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        .search-bar button {
+            background: linear-gradient(to right, #4e9cff, #0057ff);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 12px 15px;
+            margin-left: 5px;
+            border-radius: 20px;
+        }
+
+        .output-container {
+            display: flex;
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 32px;
+        }
+
+        .output-box {
+            display: flex;
+            flex-direction: column;
+            width: calc(30% - 10px);
+            padding: 10px;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 300px;
+            margin-bottom: 10px;
+            position: relative;
+            border: 1px solid #c9cdd4;
+            border-radius: 5px;
+            background-color: #f3e5f5;
+            display: none;
+            background-color: white;
+        }
+
+        .output-box-name {
+            font-weight: bold;
+        }
+
+        .output-box-text {}
+
+        .output-box-top {
+            display: flex;
+        }
+
+        .output-box-top-left {
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+        }
+
+        .output-box-text {
+            flex-grow: 1;
+            margin-top: 5px;
+            margin: 8px 0px;
+            padding: 4px;
+            min-height: 70%;
+            /* display: none; */
+        }
+
+        .output-box-text-3 {}
+
+        .post-to-twitter {
+            display: block;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: auto;
+            display: none;
+        }
+
+        .margin-top {
+            margin-top: 24px;
+        }
+
+        .justify-center {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .heading {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .font-blue {
+            color: #798ac9;
+        }
+
+        .font-grey {
+            color: #b0b3b8;
+        }
+
+        .search-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .bulb-img {
+            width: 24px;
+            height: 24px;
+            margin-left: 4px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="justify-center margin-top">
+        <span class="heading">
+            What will you
+            <span class="font-blue">
+                write today?
+            </span>
+        </span>
+    </div>
+    <div class="justify-center font-grey">
+        <span>
+            Your AI Assistant is ready to create 💡
+        </span>
+    </div>
+    <div class="search-bar">
+        <div class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="search">
+                <g data-name="Layer 2">
+                    <path
+                        d="m20.71 19.29-3.4-3.39A7.92 7.92 0 0 0 19 11a8 8 0 1 0-8 8 7.92 7.92 0 0 0 4.9-1.69l3.39 3.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 11a6 6 0 1 1 6 6 6 6 0 0 1-6-6z"
+                        data-name="search"></path>
+                </g>
+            </svg>
+        </div>
+        <input type="text" id="textInput" placeholder="Enter text to process...">
+        <button onclick="processText()">Create</button>
+    </div>
+    <div class="output-container">
+        <div class="output-box" id="output1" contenteditable="true">
+            <div class="output-box-top">
+                <div class="output-box-top-left">
+                    <div class="output-box-name">Nick Akardani</div>
+                    <div class="output-box-username">@NickAkardani</div>
+                </div>
+            </div>
+            <div class="output-box-text" id="output-box-text-1"></div>
+            <button class="post-to-twitter" onclick="postToTwitter('output1')">Post to Twitter</button>
+        </div>
+        <!-- <br>/ -->
+
+        <div class="output-box" id="output2" contenteditable="true">
+            <div class="output-box-top">
+                <div class="output-box-top-left">
+                    <div class="output-box-name">Nick Akardani</div>
+                    <div class="output-box-username">@NickAkardani</div>
+                </div>
+            </div>
+            <div class="output-box-text" id="output-box-text-2"></div>
+            <button class="post-to-twitter" onclick="postToTwitter('output2')">Post to Twitter</button>
+        </div>
+        <!-- <br> -->
+
+        <div class="output-box" id="output3" contenteditable="true">
+            <div class="output-box-top">
+                <div class="output-box-top-left">
+                    <div class="output-box-name">Nick Akardani</div>
+                    <div class="output-box-username">@NickAkardani</div>
+                </div>
+            </div>
+            <div class="output-box-text" id="output-box-text-3"></div>
+            <button class="post-to-twitter" onclick="postToTwitter('output3')">Post to Twitter</button>
+        </div>
+    </div>
+
+    <script>
+        function processText() {
+            var text = document.getElementById("textInput").value;
+            var data = { "text": text };
+
+            fetch('/process', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    var processedText = data.processed_text;
+                    var splitText = processedText.split("Post");
+                    document.getElementById("output-box-text-1").innerText = splitText[1];
+                    document.getElementById("output-box-text-2").innerText = splitText[2];
+                    document.getElementById("output-box-text-3").innerText = splitText[3];
+
+                    // Show output boxes
+                    document.querySelectorAll('.output-box').forEach(box => box.style.display = 'block');
+
+                    // Show post to twitter buttons
+                    document.querySelectorAll('.post-to-twitter').forEach(button => button.style.display = 'inline-block');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        function postToTwitter(id) {
+            var editedText = document.getElementById(id).innerText;
+            var link = "https://twitter.com/intent/post?text=" + encodeURIComponent(editedText);
+            window.open(link, '_blank');
+        }
+    </script>
+</body>
+
+</html>
