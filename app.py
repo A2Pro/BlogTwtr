@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 from openai import OpenAI
-
+import requests
 app = Flask(__name__)
 client = OpenAI(
     api_key="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",
@@ -14,7 +14,7 @@ def ask_gpt(prompt):
                     "role": "user",
                     "content": "Here is a long text. Turn it into 3 twitter posts. IMPORTANT: You need to generate "
                                "some text in the voice of the author for each blog post to completely sum it up or "
-                               "finish off your point. If it's a blog, maybe not as much. You need to encapsulate the point of the whole text in each post, and fill in the missing points in text that sounds like something the author would write. Put in the format Post 1: Post, Post 2: Post , Post 3 :Post. IMPORTANT: NO SPECIAL CHARACTERS. Here's the text: " + prompt,
+                               "finish off your point. If it's a blog, maybe not as much. Put in the format Post 1: Post, Post 2: Post , Post 3 :Post. IMPORTANT: NO SPECIAL CHARACTERS. Here's the text: " + prompt,
                 }
             ],
             model="gpt-3.5-turbo",
@@ -35,6 +35,19 @@ def process_text():
     if request.method == 'POST':
         data = request.get_json()
         text = data.get('text', '')
+        if "medium.com" in text:
+            data = text.split("-")[-1]
+            url = f'https://medium2.p.rapidapi.com/article/{data}/content'
+
+            headers = {
+                "X-RapidAPI-Key": "230e8649e8msh98f52a40b7c2062p195e3fjsnef027265a3f1",
+                "X-RapidAPI-Host": "medium2.p.rapidapi.com"
+            }
+
+            response = requests.get(url, headers=headers)
+
+            text = response.json()['content']
+
         x = ask_gpt(text)
         return jsonify({'processed_text': x})
 
@@ -46,4 +59,4 @@ def takeinput():
 
 
 if __name__ == '__main__':
-    app.run(port = 2439, host = "localhost")
+    app.run()
