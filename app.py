@@ -2,15 +2,13 @@ from flask import Flask, jsonify, request, render_template
 from openai import OpenAI
 import requests
 from dotenv import load_dotenv
-
 import os
 
 load_dotenv()
 
-print(os.getenv("OPENAI_API_KEY"))
 app = Flask(__name__)
 client = OpenAI(
-    api_key="",
+    api_key=os.getenv("OPENAI_API_KEY"),
 )
 
 
