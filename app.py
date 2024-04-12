@@ -3,7 +3,7 @@ from openai import OpenAI
 
 app = Flask(__name__)
 client = OpenAI(
-    api_key="",
+    api_key="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",
 )
 
 
@@ -14,7 +14,7 @@ def ask_gpt(prompt):
                     "role": "user",
                     "content": "Here is a long text. Turn it into 3 twitter posts. IMPORTANT: You need to generate "
                                "some text in the voice of the author for each blog post to completely sum it up or "
-                               "finish off your point. If it's a blog, maybe not as much. Put in the format Post 1: Post, Post 2: Post , Post 3 :Post. IMPORTANT: NO SPECIAL CHARACTERS. Here's the text: " + prompt,
+                               "finish off your point. If it's a blog, maybe not as much. You need to encapsulate the point of the whole text in each post, and fill in the missing points in text that sounds like something the author would write. Put in the format Post 1: Post, Post 2: Post , Post 3 :Post. IMPORTANT: NO SPECIAL CHARACTERS. Here's the text: " + prompt,
                 }
             ],
             model="gpt-3.5-turbo",
