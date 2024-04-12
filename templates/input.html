@@ -53,6 +53,9 @@
             margin-left: auto;
             margin-right: auto;
             margin-top: 32px;
+            position: relative;
+            display: none;
+            /* background-color: red; */
         }
 
         .output-box {
@@ -74,19 +77,54 @@
 
         .output-box-name {
             font-weight: bold;
+            padding-top: 12px;
         }
 
-        .output-box-text {}
+        .output-box-username {
+            padding-left: 48px;
+            color: #0057ff;
+        }
 
         .output-box-top {
             display: flex;
             padding: 6px;
+            justify-content: space-between;
         }
 
         .output-box-top-left {
-            display: flex;
+            /* display: flex;
             flex-direction: column;
-            margin-right: auto;
+            margin-right: auto; */
+            /* position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999; */
+        }
+
+        .output-box-top-left-1 {
+            position: absolute;
+            top: 5%;
+            left: 4%;
+            z-index: 9999;
+        }
+
+        .output-box-top-left-2 {
+            position: absolute;
+            top: 5%;
+            left: 38.75%;
+            z-index: 9999;
+        }
+
+        .output-box-top-left-3 {
+            position: absolute;
+            top: 5%;
+            left: 73.25%;
+            z-index: 9999;
+        }
+
+        .post {
+            height: 75%;
+            border: none;
         }
 
         .output-box-text {
@@ -94,22 +132,48 @@
             margin-top: 5px;
             margin: 8px 0px;
             padding: 4px;
-            height: 62%;
+            padding-left: 44px;
+            height: 85%;
             /* display: none; */
         }
+
+        .post-edit:focus {
+            outline: none;
+        }
+
 
         .output-box-text-3 {}
 
         .post-to-twitter {
             display: block;
-            padding: 5px 10px;
+            padding: 5px 5px;
             background-color: #007bff;
-            color: #fff;
+            /* color: #fff; */
             border: none;
             border-radius: 5px;
             cursor: pointer;
             margin-top: auto;
-            display: none;
+            /* display: none; */
+        }
+
+        .post-to-twitter-1 {
+            position: absolute;
+            top: 80%;
+            left: 20%;
+            z-index: 999;
+        }
+
+        .post-to-twitter-2 {
+            position: absolute;
+            top: 80%;
+            left: 55%;
+            z-index: 999;
+        }
+
+        .post-to-twitter-3 {
+            position: absolute;
+            top: 80%;
+            left: 90%;
         }
 
         .margin-top {
@@ -196,51 +260,69 @@
         <button onclick="processText()">Create</button>
     </div>
     <div class="output-container">
-        <div class="output-box" id="output1" contenteditable="true">
-            <div class="output-box-top">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlYeu7nVVK0xQihc6QEFLmHVnJI6u6EWLDLA&s" alt="user-profile" class="user-img" />
-                <div class="output-box-top-left">
-                    <div class="output-box-name">Nick Akardani</div>
-                    <div class="output-box-username">@NickAkardani</div>
-                </div>
-                <img src="https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-star-vector-icon-png-image_355829.jpg" alt="star" class="star-img" />
-            </div>
-            <div class="output-box-text" id="output-box-text-1"></div>
-            <div class="date">10 : 36 . April 01, 2024</div>
-            <input type="text" />
-            <button class="post-to-twitter" onclick="postToTwitter('output1')">Post to Twitter</button>
+        <div class="output-box-top-left output-box-top-left-1">
+            <div class="output-box-name post-edit" contenteditable="true">Nick Akardani</div>
         </div>
+        <div class="output-box" id="output1">
+            <div class="output-box-top">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlYeu7nVVK0xQihc6QEFLmHVnJI6u6EWLDLA&s"
+                    alt="user-profile" class="user-img" />
+                <img src="https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-star-vector-icon-png-image_355829.jpg"
+                    alt="star" class="star-img" />
+            </div>
+            <div contenteditable="true" id="post1" class="post  post-edit">
+                <div class="output-box-text" id="output-box-text-1"></div>
+            </div>
+        </div>
+        <div class="post-to-twitter post-edit post-to-twitter-1" contenteditable="true"
+            onclick="postToTwitter('output1')">Post to
+            Twitter</div>
         <!-- <br>/ -->
-
-        <div class="output-box" id="output2" contenteditable="true">
-            <div class="output-box-top">
-               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlYeu7nVVK0xQihc6QEFLmHVnJI6u6EWLDLA&s" alt="user-profile" class="user-img" />
-                <div class="output-box-top-left">
-                    <div class="output-box-name">Nick Akardani</div>
-                    <div class="output-box-username">@NickAkardani</div>
-                </div>
-               <img src="https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-star-vector-icon-png-image_355829.jpg" alt="star" class="star-img" />
-            </div>
-            <div class="output-box-text" id="output-box-text-2"></div>
-            <div class="date">10 : 36 . April 01, 2024</div>
-            <input type="text" />
-            <button class="post-to-twitter" onclick="postToTwitter('output2')">Post to Twitter</button>
+        <div class="output-box-top-left output-box-top-left-2">
+            <div class="output-box-name post-edit" contenteditable="true">Nick Akardani</div>
         </div>
+
+        <div class="output-box" id="output2">
+            <div class="output-box-top">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlYeu7nVVK0xQihc6QEFLmHVnJI6u6EWLDLA&s"
+                    alt="user-profile" class="user-img" />
+                <img src="https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-star-vector-icon-png-image_355829.jpg"
+                    alt="star" class="star-img" />
+            </div>
+            <div contenteditable="true" id="post2" class="post post-edit">
+                <div class="output-box-text" id="output-box-text-2"></div>
+            </div>
+            <!-- <div class="dat">10 : 36 . April 01, 2024</div> -->
+            <!-- <input type="text" /> -->
+
+            <!-- <button class="post-to-twitter" onclick="postToTwitter('output2')">Post to -->
+            <!-- Twitter</button> -->
+        </div>
+        <div class="post-to-twitter post-edit post-to-twitter-2" contenteditable="true" id="btn2"
+            onclick="postToTwitter('output2')">
+            Post to
+            Twitter</div>
         <!-- <br> -->
 
-        <div class="output-box" id="output3" contenteditable="true">
+        <div class="output-box-top-left output-box-top-left-3">
+            <div class="output-box-name post-edit" contenteditable="true">Nick Akardani</div>
+        </div>
+        <div class="output-box" id="output3">
             <div class="output-box-top">
-               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlYeu7nVVK0xQihc6QEFLmHVnJI6u6EWLDLA&s" alt="user-profile" class="user-img" />
-                <div class="output-box-top-left">
-                    <div class="output-box-name">Nick Akardani</div>
-                    <div class="output-box-username">@NickAkardani</div>
-                </div>
-               <img src="https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-star-vector-icon-png-image_355829.jpg" alt="star" class="star-img" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlYeu7nVVK0xQihc6QEFLmHVnJI6u6EWLDLA&s"
+                    alt="user-profile" class="user-img" />
+                <img src="https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-star-vector-icon-png-image_355829.jpg"
+                    alt="star" class="star-img" />
             </div>
-            <div class="output-box-text" id="output-box-text-3"></div>
-            <div class="date">10 : 36 . April 01, 2024</div>
-            <input type="text" />
-            <button class="post-to-twitter" onclick="postToTwitter('output3')">Post to Twitter</button>
+            <div contenteditable="true" id="post3" class="post post-edit">
+                <div class="output-box-text" id="output-box-text-3"></div>
+            </div>
+            <!-- <div class="date">10 : 36 . April 01, 2024</div> -->
+            <!-- <input type="text" /> -->
+        </div>
+        <div class="post-to-twitter post-edit post-to-twitter-3" contenteditable="true"
+            onclick="postToTwitter('output3')">Post to
+            Twitter
         </div>
     </div>
 
@@ -265,6 +347,7 @@
                     document.getElementById("output-box-text-3").innerText = splitText[3];
 
                     // Show output boxes
+                    document.querySelector('.output-container').style.display = 'flex';
                     document.querySelectorAll('.output-box').forEach(box => box.style.display = 'block');
 
                     // Show post to twitter buttons
