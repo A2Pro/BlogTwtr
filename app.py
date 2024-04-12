@@ -46,4 +46,4 @@ def takeinput():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port = 2439, host = "localhost")
