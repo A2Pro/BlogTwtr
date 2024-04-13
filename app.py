@@ -19,12 +19,13 @@ def ask_gpt(prompt):
                     "role": "user",
                     "content": "Here is a long text. Turn it into 3 twitter posts. IMPORTANT: You need to generate "
                                "some text in the voice of the author for each blog post to completely sum it up or "
-                               "finish off your point. If it's a blog, maybe not as much. Each individual post should fully encapsulate the whole article, summing up everything, and each individual post can convey the message of the whole article. Make sure each post has a different meaning from each other and that each post is different from the others in both structure, message, and meaning. ENSURE THAT ALL TEXT THAT IS GENERATED, IS GENERATED IN THE VOICE OF THE AUTHOR. Put in the format Post 1: Post, Post 2: Post , Post 3 :Post. IMPORTANT: NO SPECIAL CHARACTERS. Here's the text: " + prompt,
+                               "finish off your point. If it's a blog, maybe not as much. Make sure not to simply split the text into 3 sections and summarize each one, rather make 3 short summarizations of the whole article. So each tweet should incoportate elements from throughout the article. ENSURE THAT ALL TEXT THAT IS GENERATED, IS GENERATED IN THE VOICE OF THE AUTHOR. Put in the format Post 1: Post, Post 2: Post , Post 3 :Post. IMPORTANT: NO SPECIAL CHARACTERS. Here's the text: " + prompt,
                 }
             ],
             model="gpt-3.5-turbo",
         )
     if "Post" not in response.choices[0].message.content:
+        print(response.choices[0].message.content)
         ask_gpt(prompt)
     return response.choices[0].message.content
 
