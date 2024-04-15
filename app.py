@@ -46,7 +46,7 @@ def process_text():
             url = f'https://medium2.p.rapidapi.com/article/{data}/content'
 
             headers = {
-                "X-RapidAPI-Key": "230e8649e8msh98f52a40b7c2062p195e3fjsnef027265a3f1",
+                "X-RapidAPI-Key": os.getenv("RAPIDAPI_API_KEY"),
                 "X-RapidAPI-Host": "medium2.p.rapidapi.com"
             }
 
